@@ -15,21 +15,20 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := citrus
 DEVICE_PATH := device/xiaomi/citrus
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+PRODUCT_RELEASE_NAME := Poco M3
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_PACKAGES += fastbootd
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
-
-#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := citrus
 PRODUCT_NAME := omni_citrus
 PRODUCT_BRAND := Pocophone
-PRODUCT_MODEL := Poco m3
+PRODUCT_MODEL := Poco M3
 PRODUCT_MANUFACTURER := Xiaomi
 
 # HACK: Set vendor patch level
